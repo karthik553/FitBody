@@ -23,6 +23,7 @@
 		73F87F03180A40090086C99B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73F87F01180A40090086C99B /* InfoPlist.strings */; };
 		73F87F05180A40090086C99B /* FitBodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F87F04180A40090086C99B /* FitBodyTests.m */; };
 		73F87F50180A40A10086C99B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F87F4F180A40A10086C99B /* Main.storyboard */; };
+		73F87F54180A41C20086C99B /* FBHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F87F53180A41C20086C99B /* FBHomeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		73F87F02180A40090086C99B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73F87F04180A40090086C99B /* FitBodyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FitBodyTests.m; sourceTree = "<group>"; };
 		73F87F4F180A40A10086C99B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		73F87F52180A41C20086C99B /* FBHomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBHomeTableViewController.h; path = Controllers/FBHomeTableViewController.h; sourceTree = "<group>"; };
+		73F87F53180A41C20086C99B /* FBHomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBHomeTableViewController.m; path = Controllers/FBHomeTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,7 @@
 		73F87EE1180A40090086C99B /* FitBody */ = {
 			isa = PBXGroup;
 			children = (
+				73F87F51180A417D0086C99B /* Controllers */,
 				73F87EEA180A40090086C99B /* FBAppDelegate.h */,
 				73F87EEB180A40090086C99B /* FBAppDelegate.m */,
 				73F87EF0180A40090086C99B /* Images.xcassets */,
@@ -154,6 +158,15 @@
 				73F87F01180A40090086C99B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73F87F51180A417D0086C99B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				73F87F52180A41C20086C99B /* FBHomeTableViewController.h */,
+				73F87F53180A41C20086C99B /* FBHomeTableViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F87EEC180A40090086C99B /* FBAppDelegate.m in Sources */,
+				73F87F54180A41C20086C99B /* FBHomeTableViewController.m in Sources */,
 				73F87EEF180A40090086C99B /* FitBody.xcdatamodeld in Sources */,
 				73F87EE8180A40090086C99B /* main.m in Sources */,
 			);
