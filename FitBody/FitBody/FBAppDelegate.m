@@ -7,6 +7,13 @@
 //
 
 #import "FBAppDelegate.h"
+#import "MMDrawerController.h"
+#import "FBLeftDrawerTableViewController.h"
+#import "FBHomeTableViewController.h"
+
+@interface FBAppDelegate ()
+@property (strong, nonatomic) MMDrawerController *drawerController;
+@end
 
 @implementation FBAppDelegate
 
@@ -16,10 +23,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /* Initialize left drawer table view controller */
+    FBLeftDrawerTableViewController *leftDrawerTableViewController = [[FBLeftDrawerTableViewController alloc] init];
+    leftDrawerTableViewController.previousSelectedIndex = 0; //0 = FBHomeTableViewController
+    leftDrawerTableViewController.currentSelectedIndex = 0; //0 = FBHomeTableViewController
+    /* Initialize left navigation drawer controller */
+    UINavigationController *leftDrawerNavigationController = [[UINavigationController alloc] initWithRootViewController:leftDrawerTableViewController];
+    
+    /* Initialize center navigation drawer controller */
+    FBHomeTableViewController *homeTableViewController = [[FBHomeTableViewController alloc] init];
+    
+    /* Initialize home navigation controller */
+    UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeTableViewController];
+    
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:leftDrawerNavigationController];
+    [self.drawerController setShowsShadow:YES];
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    [self.drawerController setMaximumLeftDrawerWidth:240.0];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    UIColor * tintColor = [UIColor colorWithRed:29.0/255.0
+                                          green:173.0/255.0
+                                           blue:234.0/255.0
+                                          alpha:1.0];
+    [self.window setTintColor:tintColor];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self.window setRootViewController:self.drawerController];
     return YES;
 }
 

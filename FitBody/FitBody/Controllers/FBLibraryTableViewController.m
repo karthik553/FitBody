@@ -1,19 +1,19 @@
 //
-//  FBHomeViewController.m
+//  FBLibraryTableViewController.m
 //  FitBody
 //
-//  Created by Manikanta.Sanisetty on 10/12/13.
+//  Created by Manikanta.Sanisetty on 10/16/13.
 //  Copyright (c) 2013 SD. All rights reserved.
 //
 
-#import "FBHomeTableViewController.h"
+#import "FBLibraryTableViewController.h"
 #import "UIViewController+MMDrawerController.h"
 
-@interface FBHomeTableViewController ()
+@interface FBLibraryTableViewController ()
 
 @end
 
-@implementation FBHomeTableViewController
+@implementation FBLibraryTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,7 +34,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupLeftBarButtonItem];
-    self.navigationItem.title = @"Home";
+    self.navigationItem.title = @"Library";
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,41 +45,29 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     // Configure the cell...
     
     return cell;
 }
-
-#pragma mark - BarButtonItem action
-- (void)leftBarButtonTapped:(id)sender {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-}
-
-
-#pragma mark - Helper Methods
-- (void)setupLeftBarButtonItem {
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]init];
-    leftBarButtonItem.title = @"|||";
-    leftBarButtonItem.target = self;
-    [leftBarButtonItem setAction:@selector(leftBarButtonTapped:)];
-    [self.navigationItem setLeftBarButtonItem:leftBarButtonItem];
-}
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -132,4 +120,17 @@
 
  */
 
+#pragma mark - Helper Methods
+- (void)setupLeftBarButtonItem {
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]init];
+    leftBarButtonItem.title = @"|||";
+    leftBarButtonItem.target = self;
+    [leftBarButtonItem setAction:@selector(leftBarButtonTapped:)];
+    [self.navigationItem setLeftBarButtonItem:leftBarButtonItem];
+}
+
+#pragma mark - BarButtonItem action
+- (void)leftBarButtonTapped:(id)sender {
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 @end

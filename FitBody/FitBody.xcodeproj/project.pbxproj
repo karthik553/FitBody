@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73651D4F180E3A620036C599 /* FBLeftDrawerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73651D4E180E3A620036C599 /* FBLeftDrawerTableViewController.m */; };
+		73651D71180F8D8D0036C599 /* FBLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73651D70180F8D8D0036C599 /* FBLibraryTableViewController.m */; };
+		73651D7A180FA9300036C599 /* BufferedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73651D79180FA9300036C599 /* BufferedNavigationController.m */; };
+		7379D6E6180CF9FA00D19B2E /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6DE180CF9F900D19B2E /* MMDrawerBarButtonItem.m */; };
+		7379D6E7180CF9FA00D19B2E /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E1180CF9F900D19B2E /* MMDrawerController.m */; };
+		7379D6E8180CF9FA00D19B2E /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E3180CF9F900D19B2E /* MMDrawerVisualState.m */; };
+		7379D6E9180CF9FA00D19B2E /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E5180CF9FA00D19B2E /* UIViewController+MMDrawerController.m */; };
 		73F87EDA180A40090086C99B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F87ED9180A40090086C99B /* Foundation.framework */; };
 		73F87EDC180A40090086C99B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F87EDB180A40090086C99B /* CoreGraphics.framework */; };
 		73F87EDE180A40090086C99B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F87EDD180A40090086C99B /* UIKit.framework */; };
@@ -37,6 +44,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		73651D4D180E3A620036C599 /* FBLeftDrawerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLeftDrawerTableViewController.h; path = Controllers/FBLeftDrawerTableViewController.h; sourceTree = "<group>"; };
+		73651D4E180E3A620036C599 /* FBLeftDrawerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLeftDrawerTableViewController.m; path = Controllers/FBLeftDrawerTableViewController.m; sourceTree = "<group>"; };
+		73651D6F180F8D8D0036C599 /* FBLibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLibraryTableViewController.h; path = Controllers/FBLibraryTableViewController.h; sourceTree = "<group>"; };
+		73651D70180F8D8D0036C599 /* FBLibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLibraryTableViewController.m; path = Controllers/FBLibraryTableViewController.m; sourceTree = "<group>"; };
+		73651D78180FA9300036C599 /* BufferedNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BufferedNavigationController.h; path = BufferedNavigationController/BufferedNavigationController.h; sourceTree = "<group>"; };
+		73651D79180FA9300036C599 /* BufferedNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BufferedNavigationController.m; path = BufferedNavigationController/BufferedNavigationController.m; sourceTree = "<group>"; };
+		7379D6DD180CF9F900D19B2E /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		7379D6DE180CF9F900D19B2E /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		7379D6DF180CF9F900D19B2E /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		7379D6E0180CF9F900D19B2E /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		7379D6E1180CF9F900D19B2E /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		7379D6E2180CF9F900D19B2E /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		7379D6E3180CF9F900D19B2E /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		7379D6E4180CF9F900D19B2E /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		7379D6E5180CF9FA00D19B2E /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
 		73F87ED6180A40090086C99B /* FitBody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitBody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F87ED9180A40090086C99B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73F87EDB180A40090086C99B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,6 +108,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73651D74180FA89B0036C599 /* BufferedNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				73651D78180FA9300036C599 /* BufferedNavigationController.h */,
+				73651D79180FA9300036C599 /* BufferedNavigationController.m */,
+			);
+			name = BufferedNavigationController;
+			sourceTree = "<group>";
+		};
+		7379D6DC180CF9F900D19B2E /* MMDrawerController */ = {
+			isa = PBXGroup;
+			children = (
+				7379D6DD180CF9F900D19B2E /* MMDrawerBarButtonItem.h */,
+				7379D6DE180CF9F900D19B2E /* MMDrawerBarButtonItem.m */,
+				7379D6DF180CF9F900D19B2E /* MMDrawerController+Subclass.h */,
+				7379D6E0180CF9F900D19B2E /* MMDrawerController.h */,
+				7379D6E1180CF9F900D19B2E /* MMDrawerController.m */,
+				7379D6E2180CF9F900D19B2E /* MMDrawerVisualState.h */,
+				7379D6E3180CF9F900D19B2E /* MMDrawerVisualState.m */,
+				7379D6E4180CF9F900D19B2E /* UIViewController+MMDrawerController.h */,
+				7379D6E5180CF9FA00D19B2E /* UIViewController+MMDrawerController.m */,
+			);
+			path = MMDrawerController;
+			sourceTree = "<group>";
+		};
 		73F87ECD180A40090086C99B = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +167,8 @@
 		73F87EE1180A40090086C99B /* FitBody */ = {
 			isa = PBXGroup;
 			children = (
+				73651D74180FA89B0036C599 /* BufferedNavigationController */,
+				7379D6DC180CF9F900D19B2E /* MMDrawerController */,
 				73F87F51180A417D0086C99B /* Controllers */,
 				73F87EEA180A40090086C99B /* FBAppDelegate.h */,
 				73F87EEB180A40090086C99B /* FBAppDelegate.m */,
@@ -165,6 +214,10 @@
 			children = (
 				73F87F52180A41C20086C99B /* FBHomeTableViewController.h */,
 				73F87F53180A41C20086C99B /* FBHomeTableViewController.m */,
+				73651D4D180E3A620036C599 /* FBLeftDrawerTableViewController.h */,
+				73651D4E180E3A620036C599 /* FBLeftDrawerTableViewController.m */,
+				73651D6F180F8D8D0036C599 /* FBLibraryTableViewController.h */,
+				73651D70180F8D8D0036C599 /* FBLibraryTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,8 +321,15 @@
 			files = (
 				73F87EEC180A40090086C99B /* FBAppDelegate.m in Sources */,
 				73F87F54180A41C20086C99B /* FBHomeTableViewController.m in Sources */,
+				7379D6E6180CF9FA00D19B2E /* MMDrawerBarButtonItem.m in Sources */,
+				7379D6E9180CF9FA00D19B2E /* UIViewController+MMDrawerController.m in Sources */,
 				73F87EEF180A40090086C99B /* FitBody.xcdatamodeld in Sources */,
+				7379D6E7180CF9FA00D19B2E /* MMDrawerController.m in Sources */,
 				73F87EE8180A40090086C99B /* main.m in Sources */,
+				73651D71180F8D8D0036C599 /* FBLibraryTableViewController.m in Sources */,
+				73651D7A180FA9300036C599 /* BufferedNavigationController.m in Sources */,
+				73651D4F180E3A620036C599 /* FBLeftDrawerTableViewController.m in Sources */,
+				7379D6E8180CF9FA00D19B2E /* MMDrawerVisualState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +530,7 @@
 				73F87F0A180A40090086C99B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		73F87F0B180A40090086C99B /* Build configuration list for PBXNativeTarget "FitBodyTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +539,7 @@
 				73F87F0D180A40090086C99B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
