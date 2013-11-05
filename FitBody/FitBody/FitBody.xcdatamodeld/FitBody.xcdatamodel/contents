@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A598" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="force" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mainMuscleWorked" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mechanicsType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photos" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="sport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videos" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="193"/>
+    </elements>
 </model>

@@ -7,10 +7,12 @@
 //
 
 #import "FBLibraryTableViewController.h"
+#import "Exercise.h"
 #import "UIViewController+MMDrawerController.h"
+#import <RestKit/RestKit.h>
 
-@interface FBLibraryTableViewController ()
-
+@interface FBLibraryTableViewController ()<NSFetchedResultsControllerDelegate>
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation FBLibraryTableViewController
@@ -24,6 +26,20 @@
     return self;
 }
 
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (!_fetchedResultsController) {
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Exercise class])];
+        fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext sectionNameKeyPath:nil cacheName:@"FitBody"];
+        self.fetchedResultsController.delegate = self;
+        NSError *error = nil;
+        [self.fetchedResultsController performFetch:&error];
+        NSLog(@"%@", [self.fetchedResultsController fetchedObjects]);
+        NSAssert(!error, @"Error performing fetch request: %@", error);
+    }
+    return _fetchedResultsController;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,6 +51,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupLeftBarButtonItem];
     self.navigationItem.title = @"Library";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/u/39880631/exerciseDetails.json" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,16 +70,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,9 +87,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    Exercise *exercise = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = exercise.name;
     return cell;
 }
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

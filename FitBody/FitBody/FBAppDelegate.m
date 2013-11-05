@@ -10,6 +10,8 @@
 #import "MMDrawerController.h"
 #import "FBLeftDrawerTableViewController.h"
 #import "FBHomeTableViewController.h"
+#import "Exercise.h"
+#import <RestKit/RestKit.h>
 
 @interface FBAppDelegate ()
 @property (strong, nonatomic) MMDrawerController *drawerController;
@@ -23,6 +25,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if DEBUG 
+    RKLogConfigureByName("Restkit/Network", RKLogLevelTrace);
+    RKLogConfigureByName("Restkit/ObjectMapping", RKLogLevelTrace);
+#endif
+    
+    [self setupRestkit];
     /* Initialize left drawer table view controller */
     FBLeftDrawerTableViewController *leftDrawerTableViewController = [[FBLeftDrawerTableViewController alloc] init];
     leftDrawerTableViewController.previousSelectedIndex = 0; //0 = FBHomeTableViewController
@@ -54,6 +62,43 @@
     [self.window makeKeyAndVisible];
     [self.window setRootViewController:self.drawerController];
     return YES;
+}
+
+- (void)setupRestkit {
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"https://dl.dropboxusercontent.com"]];
+    [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class] forMIMEType:@"text/plain"];
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    manager.managedObjectStore = managedObjectStore;
+    
+    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+    [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"errorMessage"]];
+    RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping method:RKRequestMethodPOST | RKRequestMethodGET pathPattern:nil keyPath:@"error" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+    [manager addResponseDescriptorsFromArray:@[errorDescriptor]];
+    
+    NSDictionary *exerciseObjectMapping = @{
+                                            @"Equipment": @"equipment",
+                                            @"Force":@"force",
+                                            @"Level":@"level",
+                                            @"Main Muscle Worked":@"mainMuscleWorked",
+                                            @"Mechanics Type":@"mechanicsType",
+                                            @"name":@"name",
+                                            @"Photos":@"photos",
+                                            @"Sport":@"sport",
+                                            @"Type":@"type",
+                                            @"video":@"videos"};
+    RKEntityMapping *exerciseMapping = [RKEntityMapping mappingForEntityForName:NSStringFromClass([Exercise class]) inManagedObjectStore:manager.managedObjectStore];
+    [exerciseMapping addAttributeMappingsFromDictionary:exerciseObjectMapping];
+    
+    [manager addResponseDescriptorsFromArray:@[[RKResponseDescriptor responseDescriptorWithMapping:exerciseMapping method:RKRequestMethodGET pathPattern:@"/u/39880631/exerciseDetails.json" keyPath:@"" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]]];
+    
+    [managedObjectStore createPersistentStoreCoordinator];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"FitBody.sqlite"];
+    NSError *error = nil;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:nil withConfiguration:nil options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store with error:%@", error);
+    [managedObjectStore createManagedObjectContexts];
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:manager.managedObjectStore.persistentStoreManagedObjectContext];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
