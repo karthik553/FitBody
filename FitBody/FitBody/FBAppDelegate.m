@@ -42,9 +42,9 @@
     FBHomeTableViewController *homeTableViewController = [[FBHomeTableViewController alloc] init];
     
     /* Initialize home navigation controller */
-    UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeTableViewController];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:homeTableViewController];
     
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:leftDrawerNavigationController];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:self.navigationController leftDrawerViewController:leftDrawerNavigationController];
     [self.drawerController setShowsShadow:YES];
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
     [self.drawerController setMaximumLeftDrawerWidth:240.0];

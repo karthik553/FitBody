@@ -10,6 +10,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "FBLibraryTableViewController.h"
 #import "FBHomeTableViewController.h"
+#import "FBAppDelegate.h"
 
 @interface FBLeftDrawerTableViewController (){
     NSArray *featureTitles;
@@ -80,18 +81,21 @@
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+    
+    UINavigationController *navigationController = (UINavigationController *)self.mm_drawerController.centerViewController;
+    
     if (indexPath.row == 0 && self.previousSelectedIndex != indexPath.row) {
         self.previousSelectedIndex = 0;
         self.currentSelectedIndex = 0; //Current selected index == indexpath.row
         FBHomeTableViewController *homeTableViewController = [[FBHomeTableViewController alloc] init];
-        UINavigationController *homeNavigationController = [ [UINavigationController alloc] initWithRootViewController:homeTableViewController];
-        [self.mm_drawerController setCenterViewController:homeNavigationController withCloseAnimation:YES completion:nil];
+        navigationController.viewControllers = @[homeTableViewController];
+        [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
     } else if (indexPath.row == 1 && self.previousSelectedIndex != indexPath.row) {
         self.previousSelectedIndex = 1;
         self.currentSelectedIndex = 1;//Current selected index == indexpath.row
         FBLibraryTableViewController *libraryTableViewController = [[FBLibraryTableViewController alloc] init];
-        UINavigationController *libraryNavigationController = [ [UINavigationController alloc] initWithRootViewController:libraryTableViewController];
-        [self.mm_drawerController setCenterViewController:libraryNavigationController withCloseAnimation:YES completion:nil];
+        navigationController.viewControllers = @[libraryTableViewController];
+        [self.mm_drawerController setCenterViewController:navigationController withCloseAnimation:YES completion:nil];
     }
 }
 
