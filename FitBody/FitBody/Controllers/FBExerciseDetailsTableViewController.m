@@ -1,22 +1,20 @@
 //
-//  FBLibraryTableViewController.m
+//  FBExerciseDetailsTableViewController.m
 //  FitBody
 //
-//  Created by Manikanta.Sanisetty on 10/16/13.
+//  Created by Manikanta.Sanisetty on 11/8/13.
 //  Copyright (c) 2013 SD. All rights reserved.
 //
 
-#import "FBLibraryTableViewController.h"
-#import "Exercise.h"
+#import "FBExerciseDetailsTableViewController.h"
 #import "FBDataSource.h"
-#import "UIViewController+MMDrawerController.h"
-#import <RestKit/RestKit.h>
+#import "Exercise.h"
 
-@interface FBLibraryTableViewController ()
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface FBExerciseDetailsTableViewController ()
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
 @end
 
-@implementation FBLibraryTableViewController
+@implementation FBExerciseDetailsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,11 +25,11 @@
     return self;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (!_fetchedResultsController) {
-        _fetchedResultsController = [[FBDataSource sharedManager] fetchUniqueMainMuscleWorkouts];
+- (NSFetchedResultsController *)fetchedResultController {
+    if (!_fetchedResultController) {
+        _fetchedResultController = [[FBDataSource sharedManager] fetchExerciseDetailsForKey:@"Triceps"];
     }
-    return _fetchedResultsController;
+    return _fetchedResultController;
 }
 
 - (void)viewDidLoad
@@ -43,15 +41,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self setupLeftBarButtonItem];
-    self.navigationItem.title = @"Library";
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"FBLibraryCellIdentifier"];
-    
-//    [[RKObjectManager sharedManager] getObjectsAtPath:@"/u/39880631/exerciseDetails.json" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//        
-//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
+    self.navigationController.title = @"Exercises";
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ExerciseDetailsCellIdentifier"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,36 +56,26 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
+    return [[self.fetchedResultController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    id sectionInfo = [[self.fetchedResultController sections] objectAtIndex:section];
     return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FBLibraryCellIdentifier";
+    static NSString *CellIdentifier = @"ExerciseDetailsCellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row] objectForKey:@"mainMuscleWorked"];
+    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
+    cell.textLabel.text = exercise.name;
     return cell;
 }
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView reloadData];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"FBExerciseDetailsTableViewControllerIdentifier"];
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -147,17 +128,4 @@
 
  */
 
-#pragma mark - Helper Methods
-- (void)setupLeftBarButtonItem {
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]init];
-    leftBarButtonItem.title = @"|||";
-    leftBarButtonItem.target = self;
-    [leftBarButtonItem setAction:@selector(leftBarButtonTapped:)];
-    [self.navigationItem setLeftBarButtonItem:leftBarButtonItem];
-}
-
-#pragma mark - BarButtonItem action
-- (void)leftBarButtonTapped:(id)sender {
-    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-}
 @end
