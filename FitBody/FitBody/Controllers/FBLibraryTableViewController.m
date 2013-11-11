@@ -9,6 +9,9 @@
 #import "FBLibraryTableViewController.h"
 #import "Exercise.h"
 #import "FBDataSource.h"
+#import "FBConstants.h"
+#import "FBLibraryTableViewCustomCell.h"
+#import "FBExerciseDetailsTableViewController.h"
 #import "UIViewController+MMDrawerController.h"
 #import <RestKit/RestKit.h>
 
@@ -44,8 +47,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupLeftBarButtonItem];
-    self.navigationItem.title = @"Library";
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"FBLibraryCellIdentifier"];
+    [self.navigationItem setTitle:kLibrary];
+    [self.tableView registerNib:[UINib nibWithNibName:kFBLibraryTableViewCustomCell bundle:nil] forCellReuseIdentifier:kFBLibraryCellIdentifier];
     
 //    [[RKObjectManager sharedManager] getObjectsAtPath:@"/u/39880631/exerciseDetails.json" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 //        
@@ -61,6 +64,9 @@
 }
 
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 65;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -77,11 +83,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FBLibraryCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = kFBLibraryCellIdentifier;
+    FBLibraryTableViewCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row] objectForKey:@"mainMuscleWorked"];
+    cell.targetedMuscleName = [[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row] objectForKey:kMainMuscleWorked];
     return cell;
 }
 
@@ -90,8 +96,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"FBExerciseDetailsTableViewControllerIdentifier"];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kMainStoryboard bundle:nil];
+    FBExerciseDetailsTableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:kFBExerciseDetialsTableViewControllerId];
+    [controller setExerciseDetailsKey:[[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row] objectForKey:kMainMuscleWorked]];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

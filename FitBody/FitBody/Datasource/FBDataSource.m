@@ -8,9 +8,8 @@
 
 #import "FBDataSource.h"
 #import "Exercise.h"
+#import "FBConstants.h"
 #import <RestKit/RestKit.h>
-
-#define kMainMuscleWorked @"mainMuscleWorked"
 
 @implementation FBDataSource
 
@@ -49,7 +48,7 @@
     NSManagedObjectContext *manageObjectContext = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mainMuscleWorked MATCHES %@", exerciseKey];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:exerciseClassName];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:kName ascending:YES]];
     fetchRequest.predicate = predicate;
     
     NSFetchedResultsController *fetchedResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:manageObjectContext sectionNameKeyPath:nil cacheName:@"ExerciseDetails"];

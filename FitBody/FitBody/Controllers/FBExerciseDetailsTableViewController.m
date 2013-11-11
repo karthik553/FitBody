@@ -8,7 +8,9 @@
 
 #import "FBExerciseDetailsTableViewController.h"
 #import "FBDataSource.h"
+#import "FBConstants.h"
 #import "Exercise.h"
+#import "FBExerciseDetailsTableViewCustomCell.h"
 
 @interface FBExerciseDetailsTableViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
@@ -27,7 +29,7 @@
 
 - (NSFetchedResultsController *)fetchedResultController {
     if (!_fetchedResultController) {
-        _fetchedResultController = [[FBDataSource sharedManager] fetchExerciseDetailsForKey:@"Triceps"];
+        _fetchedResultController = [[FBDataSource sharedManager] fetchExerciseDetailsForKey:self.exerciseDetailsKey];
     }
     return _fetchedResultController;
 }
@@ -41,8 +43,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationController.title = @"Exercises";
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ExerciseDetailsCellIdentifier"];
+    [self.navigationController setTitle:kExercises];
+    [self.tableView registerNib:[UINib nibWithNibName:kFBExerciseDetialsTableViewCustomCell bundle:nil] forCellReuseIdentifier:kFBExerciseDetialsCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +54,22 @@
 }
 
 #pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = 0;
+    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
+    /*
+     * exercise.name sizeWithFont:<#(UIFont *)#> forWidth:<#(CGFloat)#> lineBreakMode:<#(NSLineBreakMode)#> 
+     * Deprecated in iOS7
+     */
+    CGRect rect = [exercise.name boundingRectWithSize:(CGSize){161, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]} context:nil];
+    if (ceil(rect.size.height) > 80) {
+        height = ceil(rect.size.height) + 10;
+    } else {
+        height = 80;
+    }
+    return height;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -68,12 +86,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ExerciseDetailsCellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = kFBExerciseDetialsCellIdentifier;
+    FBExerciseDetailsTableViewCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
-    cell.textLabel.text = exercise.name;
+//    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
+//    cell.textLabel.text = exercise.name;
     return cell;
 }
 
