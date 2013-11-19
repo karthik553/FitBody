@@ -3,6 +3,7 @@
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="force" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainMuscleWorked" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mechanicsType" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,6 +14,6 @@
         <attribute name="videos" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="193"/>
+        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="208"/>
     </elements>
 </model>

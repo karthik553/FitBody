@@ -29,16 +29,25 @@
     return self;
 }
 
+- (void)syncDataFromDropbox {
+    [[RKObjectManager sharedManager] getObjectsAtPath:kFBWorkoutLibraryURL parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [[[UIAlertView alloc] initWithTitle:@"Sync Error" message:@"Unable to sync" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 - (NSFetchedResultsController *)fetchUniqueMainMuscleWorkouts {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Exercise class])];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:kMainMuscleWorked ascending:YES]];
     fetchRequest.returnsDistinctResults = YES;
     fetchRequest.resultType = NSDictionaryResultType;
-//    fetchRequest.propertiesToFetch = [NSArray arrayWithObjects:kMainMuscleWorked, nil];
+    fetchRequest.propertiesToFetch = [NSArray arrayWithObjects:kMainMuscleWorked, nil];
     NSFetchedResultsController *fetchedResultController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext sectionNameKeyPath:nil cacheName:@"Library"];
     NSError *error = nil;
     [fetchedResultController performFetch:&error];
-    NSLog(@"%@", [fetchedResultController fetchedObjects]);
+    NSLog(@"Unique Main Muscle Workouts: %@", [fetchedResultController fetchedObjects]);
     NSAssert(!error, @"Error performing fetch request: %@", error);
     return (fetchedResultController) ? fetchedResultController : nil;
 }

@@ -7,6 +7,7 @@
 extern const struct ExerciseAttributes {
 	__unsafe_unretained NSString *equipment;
 	__unsafe_unretained NSString *force;
+	__unsafe_unretained NSString *identifier;
 	__unsafe_unretained NSString *level;
 	__unsafe_unretained NSString *mainMuscleWorked;
 	__unsafe_unretained NSString *mechanicsType;
@@ -22,6 +23,7 @@ extern const struct ExerciseRelationships {
 
 extern const struct ExerciseFetchedProperties {
 } ExerciseFetchedProperties;
+
 
 
 
@@ -63,6 +65,20 @@ extern const struct ExerciseFetchedProperties {
 
 
 //- (BOOL)validateForce:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* identifier;
+
+
+
+@property int32_t identifierValue;
+- (int32_t)identifierValue;
+- (void)setIdentifierValue:(int32_t)value_;
+
+//- (BOOL)validateIdentifier:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -166,6 +182,15 @@ extern const struct ExerciseFetchedProperties {
 
 - (NSString*)primitiveForce;
 - (void)setPrimitiveForce:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveIdentifier;
+- (void)setPrimitiveIdentifier:(NSNumber*)value;
+
+- (int32_t)primitiveIdentifierValue;
+- (void)setPrimitiveIdentifierValue:(int32_t)value_;
 
 
 

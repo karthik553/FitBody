@@ -11,6 +11,8 @@
 #import "FBLeftDrawerTableViewController.h"
 #import "FBHomeTableViewController.h"
 #import "Exercise.h"
+#import "FBDataSource.h"
+#import "FBConstants.h"
 #import <RestKit/RestKit.h>
 
 @interface FBAppDelegate ()
@@ -31,6 +33,13 @@
 #endif
     
     [self setupRestkit];
+    [self initializeUserDefaults];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"first_time_load"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"first_time_load"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[FBDataSource sharedManager] syncDataFromDropbox];
+    }
+    
     /* Initialize left drawer table view controller */
     FBLeftDrawerTableViewController *leftDrawerTableViewController = [[FBLeftDrawerTableViewController alloc] init];
     leftDrawerTableViewController.previousSelectedIndex = 0; //0 = FBHomeTableViewController
@@ -64,9 +73,18 @@
     return YES;
 }
 
+- (void)initializeUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"initialized_defaults"] == nil) {
+        [defaults setBool:YES forKey:@"first_time_load"];
+        [defaults setObject:@"dummy_value" forKey:@"initialized_defaults"];
+        [defaults synchronize];
+    }
+}
+
 - (void)setupRestkit {
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"https://dl.dropboxusercontent.com"]];
     [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class] forMIMEType:@"text/plain"];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kFBBaseURL]];
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     manager.managedObjectStore = managedObjectStore;
@@ -77,7 +95,8 @@
     [manager addResponseDescriptorsFromArray:@[errorDescriptor]];
     
     NSDictionary *exerciseObjectMapping = @{
-                                            @"Equipment": @"equipment",
+                                            @"id":@"identifier",
+                                            @"Equipment":@"equipment",
                                             @"Force":@"force",
                                             @"Level":@"level",
                                             @"Main Muscle Worked":@"mainMuscleWorked",
@@ -90,7 +109,7 @@
     RKEntityMapping *exerciseMapping = [RKEntityMapping mappingForEntityForName:NSStringFromClass([Exercise class]) inManagedObjectStore:manager.managedObjectStore];
     [exerciseMapping addAttributeMappingsFromDictionary:exerciseObjectMapping];
     
-    [manager addResponseDescriptorsFromArray:@[[RKResponseDescriptor responseDescriptorWithMapping:exerciseMapping method:RKRequestMethodGET pathPattern:@"/u/39880631/exerciseDetails.json" keyPath:@"" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]]];
+    [manager addResponseDescriptorsFromArray:@[[RKResponseDescriptor responseDescriptorWithMapping:exerciseMapping method:RKRequestMethodGET pathPattern:kFBWorkoutLibraryURL keyPath:@"" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]]];
     
     [managedObjectStore createPersistentStoreCoordinator];
     NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"FitBody.sqlite"];

@@ -11,6 +11,7 @@
 #import "FBLibraryTableViewController.h"
 #import "FBHomeTableViewController.h"
 #import "FBAppDelegate.h"
+#import "FBDrawerFooterView.h"
 
 @interface FBLeftDrawerTableViewController (){
     NSArray *featureTitles;
@@ -55,6 +56,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return featureTitles.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 100;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    FBDrawerFooterView *footerView = [[FBDrawerFooterView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 100)];
+    return footerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -90,8 +90,8 @@
     FBExerciseDetailsTableViewCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-//    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
-//    cell.textLabel.text = exercise.name;
+    Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
+    
     return cell;
 }
 

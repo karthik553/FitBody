@@ -31,6 +31,8 @@
 		7379D6E7180CF9FA00D19B2E /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E1180CF9F900D19B2E /* MMDrawerController.m */; };
 		7379D6E8180CF9FA00D19B2E /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E3180CF9F900D19B2E /* MMDrawerVisualState.m */; };
 		7379D6E9180CF9FA00D19B2E /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7379D6E5180CF9FA00D19B2E /* UIViewController+MMDrawerController.m */; };
+		73B6EA111836E7F100BEF91B /* FBDrawerFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B6EA101836E7F100BEF91B /* FBDrawerFooterView.m */; };
+		73B6EA131836E81500BEF91B /* FBDrawerFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B6EA121836E81500BEF91B /* FBDrawerFooterView.xib */; };
 		73B6F19E182EF42000CA4F85 /* FBLibraryTableViewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F19D182EF42000CA4F85 /* FBLibraryTableViewCustomCell.m */; };
 		73B6F1E81831845A00CA4F85 /* FBLibraryTableViewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B6F1E71831845A00CA4F85 /* FBLibraryTableViewCustomCell.xib */; };
 		73B6F1EC1831859C00CA4F85 /* missing_image_na_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B6F1EA1831859C00CA4F85 /* missing_image_na_large.png */; };
@@ -89,6 +91,9 @@
 		7379D6E3180CF9F900D19B2E /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		7379D6E4180CF9F900D19B2E /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		7379D6E5180CF9FA00D19B2E /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		73B6EA0F1836E7F100BEF91B /* FBDrawerFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBDrawerFooterView.h; path = UI/FBDrawerFooterView.h; sourceTree = "<group>"; };
+		73B6EA101836E7F100BEF91B /* FBDrawerFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBDrawerFooterView.m; path = UI/FBDrawerFooterView.m; sourceTree = "<group>"; };
+		73B6EA121836E81500BEF91B /* FBDrawerFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FBDrawerFooterView.xib; path = UI/FBDrawerFooterView.xib; sourceTree = "<group>"; };
 		73B6F19A182EEB2E00CA4F85 /* FBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBConstants.h; sourceTree = "<group>"; };
 		73B6F19C182EF42000CA4F85 /* FBLibraryTableViewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBLibraryTableViewCustomCell.h; path = UI/FBLibraryTableViewCustomCell.h; sourceTree = "<group>"; };
 		73B6F19D182EF42000CA4F85 /* FBLibraryTableViewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBLibraryTableViewCustomCell.m; path = UI/FBLibraryTableViewCustomCell.m; sourceTree = "<group>"; };
@@ -198,6 +203,9 @@
 				73B6F1EE1831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.h */,
 				73B6F1EF1831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.m */,
 				73B6F1F11831877300CA4F85 /* FBExerciseDetailsTableViewCustomCell.xib */,
+				73B6EA0F1836E7F100BEF91B /* FBDrawerFooterView.h */,
+				73B6EA101836E7F100BEF91B /* FBDrawerFooterView.m */,
+				73B6EA121836E81500BEF91B /* FBDrawerFooterView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				73F87EE6180A40090086C99B /* InfoPlist.strings in Resources */,
 				73B6F1ED1831859C00CA4F85 /* missing_image_na_large@2x.png in Resources */,
 				73F87EF1180A40090086C99B /* Images.xcassets in Resources */,
+				73B6EA131836E81500BEF91B /* FBDrawerFooterView.xib in Resources */,
 				73B6F1F21831877300CA4F85 /* FBExerciseDetailsTableViewCustomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +491,7 @@
 				73651D71180F8D8D0036C599 /* FBLibraryTableViewController.m in Sources */,
 				73651D7A180FA9300036C599 /* BufferedNavigationController.m in Sources */,
 				730BAA0F18221807009300FF /* _Exercise.m in Sources */,
+				73B6EA111836E7F100BEF91B /* FBDrawerFooterView.m in Sources */,
 				73651D4F180E3A620036C599 /* FBLeftDrawerTableViewController.m in Sources */,
 				73F43CCB182CB3EA00161E21 /* FBDataSource.m in Sources */,
 				7379D6E8180CF9FA00D19B2E /* MMDrawerVisualState.m in Sources */,

@@ -6,6 +6,7 @@
 const struct ExerciseAttributes ExerciseAttributes = {
 	.equipment = @"equipment",
 	.force = @"force",
+	.identifier = @"identifier",
 	.level = @"level",
 	.mainMuscleWorked = @"mainMuscleWorked",
 	.mechanicsType = @"mechanicsType",
@@ -48,6 +49,11 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"identifierValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"identifier"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
@@ -64,6 +70,32 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 
 @dynamic force;
 
+
+
+
+
+
+@dynamic identifier;
+
+
+
+- (int32_t)identifierValue {
+	NSNumber *result = [self identifier];
+	return [result intValue];
+}
+
+- (void)setIdentifierValue:(int32_t)value_ {
+	[self setIdentifier:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveIdentifierValue {
+	NSNumber *result = [self primitiveIdentifier];
+	return [result intValue];
+}
+
+- (void)setPrimitiveIdentifierValue:(int32_t)value_ {
+	[self setPrimitiveIdentifier:[NSNumber numberWithInt:value_]];
+}
 
 
 

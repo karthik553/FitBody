@@ -9,6 +9,10 @@
 #ifndef FitBody_FitBodyConstants_h
 #define FitBody_FitBodyConstants_h
 
+/* URLs */
+#define kFBBaseURL @"https://dl.dropboxusercontent.com"
+#define kFBWorkoutLibraryURL @"/u/39880631/exerciseDetails.json"
+
 /* Coredata-Entity-Attributes */
 #define kMainMuscleWorked @"mainMuscleWorked"
 #define kName @"name"

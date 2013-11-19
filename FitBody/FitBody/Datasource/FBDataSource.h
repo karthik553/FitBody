@@ -10,6 +10,7 @@
 
 @interface FBDataSource : NSObject
 + (id)sharedManager;
+- (void)syncDataFromDropbox;
 - (NSFetchedResultsController *)fetchUniqueMainMuscleWorkouts;
 - (NSFetchedResultsController *)fetchExerciseDetailsForKey:(NSString *)exerciseKey;
 @end

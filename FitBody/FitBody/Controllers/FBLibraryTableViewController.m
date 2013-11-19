@@ -49,12 +49,6 @@
     [self setupLeftBarButtonItem];
     [self.navigationItem setTitle:kLibrary];
     [self.tableView registerNib:[UINib nibWithNibName:kFBLibraryTableViewCustomCell bundle:nil] forCellReuseIdentifier:kFBLibraryCellIdentifier];
-    
-//    [[RKObjectManager sharedManager] getObjectsAtPath:@"/u/39880631/exerciseDetails.json" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//        
-//    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
 }
 
 - (void)didReceiveMemoryWarning
