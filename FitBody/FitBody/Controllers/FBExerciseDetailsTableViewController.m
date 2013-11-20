@@ -91,6 +91,7 @@
     
     // Configure the cell...
     Exercise *exercise = [[self.fetchedResultController fetchedObjects] objectAtIndex:indexPath.row];
+    cell.exerciseDetails = exercise;
     
     return cell;
 }

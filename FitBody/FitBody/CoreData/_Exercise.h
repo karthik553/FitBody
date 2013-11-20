@@ -13,6 +13,7 @@ extern const struct ExerciseAttributes {
 	__unsafe_unretained NSString *mechanicsType;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *photos;
+	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *sport;
 	__unsafe_unretained NSString *type;
 	__unsafe_unretained NSString *videos;
@@ -23,6 +24,7 @@ extern const struct ExerciseRelationships {
 
 extern const struct ExerciseFetchedProperties {
 } ExerciseFetchedProperties;
+
 
 
 
@@ -134,6 +136,16 @@ extern const struct ExerciseFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* rating;
+
+
+
+//- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* sport;
 
 
@@ -221,6 +233,12 @@ extern const struct ExerciseFetchedProperties {
 
 - (NSData*)primitivePhotos;
 - (void)setPrimitivePhotos:(NSData*)value;
+
+
+
+
+- (NSString*)primitiveRating;
+- (void)setPrimitiveRating:(NSString*)value;
 
 
 

@@ -12,6 +12,7 @@ const struct ExerciseAttributes ExerciseAttributes = {
 	.mechanicsType = @"mechanicsType",
 	.name = @"name",
 	.photos = @"photos",
+	.rating = @"rating",
 	.sport = @"sport",
 	.type = @"type",
 	.videos = @"videos",
@@ -130,6 +131,13 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 
 
 @dynamic photos;
+
+
+
+
+
+
+@dynamic rating;
 
 
 

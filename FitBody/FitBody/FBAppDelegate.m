@@ -105,7 +105,8 @@
                                             @"Photos":@"photos",
                                             @"Sport":@"sport",
                                             @"Type":@"type",
-                                            @"video":@"videos"};
+                                            @"video":@"videos",
+                                            @"rating":@"rating"};
     RKEntityMapping *exerciseMapping = [RKEntityMapping mappingForEntityForName:NSStringFromClass([Exercise class]) inManagedObjectStore:manager.managedObjectStore];
     [exerciseMapping addAttributeMappingsFromDictionary:exerciseObjectMapping];
     

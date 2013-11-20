@@ -9,11 +9,12 @@
         <attribute name="mechanicsType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photos" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sport" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videos" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="208"/>
+        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="223"/>
     </elements>
 </model>

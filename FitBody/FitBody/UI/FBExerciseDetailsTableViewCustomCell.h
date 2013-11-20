@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Exercise.h"
 
 @interface FBExerciseDetailsTableViewCustomCell : UITableViewCell
 
+@property (strong, nonatomic) Exercise *exerciseDetails;
 @end
