@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1065" y="-659"/>
         </scene>
-        <!--Exercise Details Table View Controller-->
+        <!--Exercises Table View Controller-->
         <scene sceneID="lzV-ZF-ILi">
             <objects>
-                <tableViewController storyboardIdentifier="FBExerciseDetailsTableViewControllerIdentifier" id="nlQ-gV-Fwo" customClass="FBExerciseDetailsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FBExercisesTableViewControllerIdentifier" id="nlQ-gV-Fwo" customClass="FBExercisesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Nj-uU-Sui">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

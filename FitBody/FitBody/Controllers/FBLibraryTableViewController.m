@@ -11,7 +11,7 @@
 #import "FBDataSource.h"
 #import "FBConstants.h"
 #import "FBLibraryTableViewCustomCell.h"
-#import "FBExerciseDetailsTableViewController.h"
+#import "FBExercisesTableViewController.h"
 #import "UIViewController+MMDrawerController.h"
 #import <RestKit/RestKit.h>
 
@@ -91,7 +91,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kMainStoryboard bundle:nil];
-    FBExerciseDetailsTableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:kFBExerciseDetialsTableViewControllerId];
+    FBExercisesTableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:kFBExercisesTableViewControllerId];
     [controller setExerciseDetailsKey:[[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row] objectForKey:kMainMuscleWorked]];
     [self.navigationController pushViewController:controller animated:YES];
 }

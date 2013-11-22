@@ -39,7 +39,7 @@
 		73B6F1ED1831859C00CA4F85 /* missing_image_na_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73B6F1EB1831859C00CA4F85 /* missing_image_na_large@2x.png */; };
 		73B6F1F01831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B6F1EF1831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.m */; };
 		73B6F1F21831877300CA4F85 /* FBExerciseDetailsTableViewCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B6F1F11831877300CA4F85 /* FBExerciseDetailsTableViewCustomCell.xib */; };
-		73C716ED182E05E000CF3B30 /* FBExerciseDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C716EC182E05E000CF3B30 /* FBExerciseDetailsTableViewController.m */; };
+		73C716ED182E05E000CF3B30 /* FBExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C716EC182E05E000CF3B30 /* FBExercisesTableViewController.m */; };
 		73DE20B9183C723F00853BDD /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE209D183C723F00853BDD /* MKAnnotationView+WebCache.m */; };
 		73DE20BA183C723F00853BDD /* NSData+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE209F183C723F00853BDD /* NSData+GIF.m */; };
 		73DE20BB183C723F00853BDD /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE20A1183C723F00853BDD /* SDImageCache.m */; };
@@ -117,8 +117,8 @@
 		73B6F1EE1831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBExerciseDetailsTableViewCustomCell.h; path = UI/FBExerciseDetailsTableViewCustomCell.h; sourceTree = "<group>"; };
 		73B6F1EF1831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBExerciseDetailsTableViewCustomCell.m; path = UI/FBExerciseDetailsTableViewCustomCell.m; sourceTree = "<group>"; };
 		73B6F1F11831877300CA4F85 /* FBExerciseDetailsTableViewCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FBExerciseDetailsTableViewCustomCell.xib; path = UI/FBExerciseDetailsTableViewCustomCell.xib; sourceTree = "<group>"; };
-		73C716EB182E05E000CF3B30 /* FBExerciseDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBExerciseDetailsTableViewController.h; path = Controllers/FBExerciseDetailsTableViewController.h; sourceTree = "<group>"; };
-		73C716EC182E05E000CF3B30 /* FBExerciseDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBExerciseDetailsTableViewController.m; path = Controllers/FBExerciseDetailsTableViewController.m; sourceTree = "<group>"; };
+		73C716EB182E05E000CF3B30 /* FBExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBExercisesTableViewController.h; path = Controllers/FBExercisesTableViewController.h; sourceTree = "<group>"; };
+		73C716EC182E05E000CF3B30 /* FBExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBExercisesTableViewController.m; path = Controllers/FBExercisesTableViewController.m; sourceTree = "<group>"; };
 		73DE209C183C723F00853BDD /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		73DE209D183C723F00853BDD /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		73DE209E183C723F00853BDD /* NSData+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GIF.h"; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 				73651D4E180E3A620036C599 /* FBLeftDrawerTableViewController.m */,
 				73651D6F180F8D8D0036C599 /* FBLibraryTableViewController.h */,
 				73651D70180F8D8D0036C599 /* FBLibraryTableViewController.m */,
-				73C716EB182E05E000CF3B30 /* FBExerciseDetailsTableViewController.h */,
-				73C716EC182E05E000CF3B30 /* FBExerciseDetailsTableViewController.m */,
+				73C716EB182E05E000CF3B30 /* FBExercisesTableViewController.h */,
+				73C716EC182E05E000CF3B30 /* FBExercisesTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -561,7 +561,7 @@
 				73F87F54180A41C20086C99B /* FBHomeTableViewController.m in Sources */,
 				7379D6E6180CF9FA00D19B2E /* MMDrawerBarButtonItem.m in Sources */,
 				73B6F1F01831873800CA4F85 /* FBExerciseDetailsTableViewCustomCell.m in Sources */,
-				73C716ED182E05E000CF3B30 /* FBExerciseDetailsTableViewController.m in Sources */,
+				73C716ED182E05E000CF3B30 /* FBExercisesTableViewController.m in Sources */,
 				73DE20C0183C723F00853BDD /* SDWebImageManager.m in Sources */,
 				73DE20BD183C723F00853BDD /* SDWebImageDecoder.m in Sources */,
 				7379D6E9180CF9FA00D19B2E /* UIViewController+MMDrawerController.m in Sources */,

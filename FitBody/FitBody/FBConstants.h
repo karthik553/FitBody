@@ -25,7 +25,7 @@
 #define kExercises @"Exercises"
 
 /* Controllers */
-#define kFBExerciseDetialsTableViewControllerId @"FBExerciseDetailsTableViewControllerIdentifier"
+#define kFBExercisesTableViewControllerId @"FBExercisesTableViewControllerIdentifier"
 
 /* UI Classes */
 #define kFBExerciseDetialsTableViewCustomCell @"FBExerciseDetailsTableViewCustomCell"

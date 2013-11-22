@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 SD. All rights reserved.
 //
 
-#import "FBExerciseDetailsTableViewController.h"
+#import "FBExercisesTableViewController.h"
 #import "FBDataSource.h"
 #import "FBConstants.h"
 #import "Exercise.h"
 #import "FBExerciseDetailsTableViewCustomCell.h"
 
-@interface FBExerciseDetailsTableViewController ()
+@interface FBExercisesTableViewController ()
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
 @end
 
-@implementation FBExerciseDetailsTableViewController
+@implementation FBExercisesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

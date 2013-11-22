@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FBExerciseDetailsTableViewController : UITableViewController
+@interface FBExercisesTableViewController : UITableViewController
 @property (strong, nonatomic) NSString *exerciseDetailsKey;
 @end
