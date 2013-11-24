@@ -6,17 +6,21 @@
 
 extern const struct ExerciseAttributes {
 	__unsafe_unretained NSString *equipment;
+	__unsafe_unretained NSString *femalePhotos;
+	__unsafe_unretained NSString *femaleVideo;
 	__unsafe_unretained NSString *force;
+	__unsafe_unretained NSString *guideImage;
 	__unsafe_unretained NSString *identifier;
 	__unsafe_unretained NSString *level;
 	__unsafe_unretained NSString *mainMuscleWorked;
+	__unsafe_unretained NSString *malePhotos;
+	__unsafe_unretained NSString *maleVideo;
 	__unsafe_unretained NSString *mechanicsType;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *photos;
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *sport;
 	__unsafe_unretained NSString *type;
-	__unsafe_unretained NSString *videos;
 } ExerciseAttributes;
 
 extern const struct ExerciseRelationships {
@@ -24,6 +28,10 @@ extern const struct ExerciseRelationships {
 
 extern const struct ExerciseFetchedProperties {
 } ExerciseFetchedProperties;
+
+
+
+
 
 
 
@@ -62,11 +70,41 @@ extern const struct ExerciseFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSData* femalePhotos;
+
+
+
+//- (BOOL)validateFemalePhotos:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* femaleVideo;
+
+
+
+//- (BOOL)validateFemaleVideo:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* force;
 
 
 
 //- (BOOL)validateForce:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* guideImage;
+
+
+
+//- (BOOL)validateGuideImage:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -101,6 +139,26 @@ extern const struct ExerciseFetchedProperties {
 
 
 //- (BOOL)validateMainMuscleWorked:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSData* malePhotos;
+
+
+
+//- (BOOL)validateMalePhotos:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* maleVideo;
+
+
+
+//- (BOOL)validateMaleVideo:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -166,16 +224,6 @@ extern const struct ExerciseFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSData* videos;
-
-
-
-//- (BOOL)validateVideos:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
 
 @end
 
@@ -192,8 +240,26 @@ extern const struct ExerciseFetchedProperties {
 
 
 
+- (NSData*)primitiveFemalePhotos;
+- (void)setPrimitiveFemalePhotos:(NSData*)value;
+
+
+
+
+- (NSString*)primitiveFemaleVideo;
+- (void)setPrimitiveFemaleVideo:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveForce;
 - (void)setPrimitiveForce:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveGuideImage;
+- (void)setPrimitiveGuideImage:(NSString*)value;
 
 
 
@@ -215,6 +281,18 @@ extern const struct ExerciseFetchedProperties {
 
 - (NSString*)primitiveMainMuscleWorked;
 - (void)setPrimitiveMainMuscleWorked:(NSString*)value;
+
+
+
+
+- (NSData*)primitiveMalePhotos;
+- (void)setPrimitiveMalePhotos:(NSData*)value;
+
+
+
+
+- (NSString*)primitiveMaleVideo;
+- (void)setPrimitiveMaleVideo:(NSString*)value;
 
 
 
@@ -251,12 +329,6 @@ extern const struct ExerciseFetchedProperties {
 
 - (NSString*)primitiveType;
 - (void)setPrimitiveType:(NSString*)value;
-
-
-
-
-- (NSData*)primitiveVideos;
-- (void)setPrimitiveVideos:(NSData*)value;
 
 
 

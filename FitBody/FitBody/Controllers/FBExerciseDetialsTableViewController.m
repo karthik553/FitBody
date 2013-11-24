@@ -1,23 +1,19 @@
 //
-//  FBExerciseDetailsTableViewController.m
+//  FBExerciseDetialsTableViewController.m
 //  FitBody
 //
-//  Created by Manikanta.Sanisetty on 11/8/13.
+//  Created by Manikanta.Sanisetty on 11/23/13.
 //  Copyright (c) 2013 SD. All rights reserved.
 //
 
-#import "FBExercisesTableViewController.h"
-#import "FBDataSource.h"
-#import "FBConstants.h"
-#import "Exercise.h"
-#import "FBExercisesTableViewCustomCell.h"
 #import "FBExerciseDetialsTableViewController.h"
+#import "FBConstants.h"
 
-@interface FBExercisesTableViewController ()
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@interface FBExerciseDetialsTableViewController ()
+
 @end
 
-@implementation FBExercisesTableViewController
+@implementation FBExerciseDetialsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,13 +22,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (!_fetchedResultsController) {
-        _fetchedResultsController = [[FBDataSource sharedManager] fetchExerciseDetailsForKey:self.exerciseDetailsKey];
-    }
-    return _fetchedResultsController;
 }
 
 - (void)viewDidLoad
@@ -44,8 +33,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.navigationController setTitle:kExercises];
-    [self.tableView registerNib:[UINib nibWithNibName:kFBExercisesTableViewCustomCell bundle:nil] forCellReuseIdentifier:kFBExercisesCellIdentifier];
+    [self.navigationController setTitle:self.exerciseInfo.name];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,52 +44,26 @@
 
 #pragma mark - Table view data source
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = 0;
-    Exercise *exercise = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
-    /*
-     * exercise.name sizeWithFont:<#(UIFont *)#> forWidth:<#(CGFloat)#> lineBreakMode:<#(NSLineBreakMode)#> 
-     * Deprecated in iOS7
-     */
-    CGRect rect = [exercise.name boundingRectWithSize:(CGSize){161, CGFLOAT_MAX} options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]} context:nil];
-    if (ceil(rect.size.height) > 80) {
-        height = ceil(rect.size.height) + 10;
-    } else {
-        height = 80;
-    }
-    return height;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = kFBExercisesCellIdentifier;
-    FBExercisesTableViewCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    Exercise *exercise = [[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row];
-    cell.exerciseDetails = exercise;
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:kMainStoryboard bundle:nil];
-    FBExerciseDetialsTableViewController *controller = [storyboard instantiateViewControllerWithIdentifier:kFBExerciseDetialsTableViewControllerId];
-    [controller setExerciseInfo:[[self.fetchedResultsController fetchedObjects] objectAtIndex:indexPath.row]];
-    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*

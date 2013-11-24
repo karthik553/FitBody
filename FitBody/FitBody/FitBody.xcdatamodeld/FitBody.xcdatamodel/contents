@@ -2,19 +2,24 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A598" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="femalePhotos" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="femaleVideo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="force" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guideImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainMuscleWorked" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="malePhotos" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="maleVideo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mechanicsType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photos" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="otherMuscles" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="steps" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="videos" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="-27" width="128" height="223"/>
+        <element name="Exercise" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

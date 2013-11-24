@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 SD. All rights reserved.
 //
 
-#import "FBExerciseDetailsTableViewCustomCell.h"
+#import "FBExercisesTableViewCustomCell.h"
 #import "UIImageView+WebCache.h"
 
-@interface FBExerciseDetailsTableViewCustomCell ()
+@interface FBExercisesTableViewCustomCell ()
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *exerciseImageView1;
 @property (weak, nonatomic) IBOutlet UIImageView *exerciseImageView2;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation FBExerciseDetailsTableViewCustomCell
+@implementation FBExercisesTableViewCustomCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -39,7 +39,7 @@
     _exerciseDetails = exerciseDetails;
     [self.exerciseNameLabel setText:exerciseDetails.name];
     [self.ratingLabel setText:exerciseDetails.rating];
-    NSArray* array = [NSKeyedUnarchiver unarchiveObjectWithData:exerciseDetails.photos];
+    NSArray* array = [NSKeyedUnarchiver unarchiveObjectWithData:exerciseDetails.malePhotos];
     [self.exerciseImageView1 setImageWithURL:[NSURL URLWithString:[array objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"missing_image_na_large"]];
     [self.exerciseImageView2 setImageWithURL:[NSURL URLWithString:[array objectAtIndex:1]] placeholderImage:[UIImage imageNamed:@"missing_image_na_large"]];
 }

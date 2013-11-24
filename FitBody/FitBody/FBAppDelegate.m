@@ -102,11 +102,16 @@
                                             @"Main Muscle Worked":@"mainMuscleWorked",
                                             @"Mechanics Type":@"mechanicsType",
                                             @"name":@"name",
-                                            @"Photos":@"photos",
                                             @"Sport":@"sport",
                                             @"Type":@"type",
-                                            @"video":@"videos",
-                                            @"rating":@"rating"};
+                                            @"rating":@"rating",
+                                            @"MalePhotos":@"malePhotos",
+                                            @"FemalePhotos":@"femalePhotos",
+                                            @"femaleVideo":@"femaleVideo",
+                                            @"MaleVideo":@"maleVideo",
+                                            @"guideImage":@"guideImage",
+                                            @"steps":@"steps",
+                                            @"Other Muscles":@"otherMuscles"};
     RKEntityMapping *exerciseMapping = [RKEntityMapping mappingForEntityForName:NSStringFromClass([Exercise class]) inManagedObjectStore:manager.managedObjectStore];
     [exerciseMapping addAttributeMappingsFromDictionary:exerciseObjectMapping];
     

@@ -26,13 +26,14 @@
 
 /* Controllers */
 #define kFBExercisesTableViewControllerId @"FBExercisesTableViewControllerIdentifier"
+#define kFBExerciseDetialsTableViewControllerId @"FBExerciseDetailsTableViewControllerIdentifier"
 
 /* UI Classes */
-#define kFBExerciseDetialsTableViewCustomCell @"FBExerciseDetailsTableViewCustomCell"
+#define kFBExercisesTableViewCustomCell @"FBExercisesTableViewCustomCell"
 #define kFBLibraryTableViewCustomCell @"FBLibraryTableViewCustomCell"
 
 /* Identifiers */
-#define kFBExerciseDetialsCellIdentifier @"FBExerciseDetailsCellIdentifier"
+#define kFBExercisesCellIdentifier @"FBExercisesCellIdentifier"
 #define kFBLibraryCellIdentifier @"FBLibraryCellIdentifier"
 
 #endif

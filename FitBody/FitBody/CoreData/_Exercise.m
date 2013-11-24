@@ -5,17 +5,21 @@
 
 const struct ExerciseAttributes ExerciseAttributes = {
 	.equipment = @"equipment",
+	.femalePhotos = @"femalePhotos",
+	.femaleVideo = @"femaleVideo",
 	.force = @"force",
+	.guideImage = @"guideImage",
 	.identifier = @"identifier",
 	.level = @"level",
 	.mainMuscleWorked = @"mainMuscleWorked",
+	.malePhotos = @"malePhotos",
+	.maleVideo = @"maleVideo",
 	.mechanicsType = @"mechanicsType",
 	.name = @"name",
 	.photos = @"photos",
 	.rating = @"rating",
 	.sport = @"sport",
 	.type = @"type",
-	.videos = @"videos",
 };
 
 const struct ExerciseRelationships ExerciseRelationships = {
@@ -69,7 +73,28 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 
 
 
+@dynamic femalePhotos;
+
+
+
+
+
+
+@dynamic femaleVideo;
+
+
+
+
+
+
 @dynamic force;
+
+
+
+
+
+
+@dynamic guideImage;
 
 
 
@@ -116,6 +141,20 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 
 
 
+@dynamic malePhotos;
+
+
+
+
+
+
+@dynamic maleVideo;
+
+
+
+
+
+
 @dynamic mechanicsType;
 
 
@@ -152,13 +191,6 @@ const struct ExerciseFetchedProperties ExerciseFetchedProperties = {
 
 
 @dynamic type;
-
-
-
-
-
-
-@dynamic videos;
 
 
 
